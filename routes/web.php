@@ -13,3 +13,7 @@ Route::get('/role', [RoleController::class, 'showHello']);
 use App\Http\Controllers\HomeController;
 
 Route::get('/', [HomeController::class, 'welcome']);
+
+use App\Http\Controllers\UserController;
+
+Route::get('/users', [UserController::class, 'index']);
