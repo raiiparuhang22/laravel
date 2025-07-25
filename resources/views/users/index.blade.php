@@ -31,23 +31,29 @@
                             <th>Age</th>
                             <th>Start Date</th>
                             <th>Salary</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($users as $user)
-                            <tr>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->position }}</td>
-                                <td>{{ $user->office }}</td>
-                                <td>{{ $user->age }}</td>
-                                <td>{{ $user->start_date }}</td>
-                                <td>${{ number_format($user->salary, 2) }}</td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="6" class="text-center">No users found.</td>
-                            </tr>
-                        @endforelse
+                    @forelse ($users as $user)
+                        <tr>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->position }}</td>
+                            <td>{{ $user->office }}</td>
+                            <td>{{ $user->age }}</td>
+                            <td>{{ $user->start_date }}</td>
+                            <td>${{ number_format($user->salary, 2) }}</td>
+                            <td>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-info">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center">No users found.</td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>

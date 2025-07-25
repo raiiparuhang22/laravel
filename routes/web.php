@@ -17,3 +17,9 @@ Route::get('/users/create', [UserController::class, 'create'])->name('users.crea
 Route::post('/users', [UserController::class, 'store'])->name('users.store');       // Submit form
 
 Route::resource('users', App\Http\Controllers\UserController::class);
+Route::resource('users', UserController::class);
+
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
+
+
