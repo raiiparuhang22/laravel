@@ -21,6 +21,17 @@
             <h6 class="m-0 font-weight-bold text-primary">Users Table</h6>
         </div>
         <div class="card-body">
+
+            <!-- ✅ Success Message -->
+            @if (session('success'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ session('success') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead class="thead-dark">
@@ -47,6 +58,14 @@
                                 <a href="{{ route('users.edit', $user->id) }}" class="btn btn-sm btn-info">
                                     <i class="fas fa-edit"></i> Edit
                                 </a>
+
+                                <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @empty
