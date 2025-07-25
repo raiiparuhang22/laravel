@@ -21,42 +21,42 @@
 
         <div class="form-group">
             <label>Name</label>
-            <input name="name" type="text" class="form-control" placeholder="Full Name" required>
+            <input name="name" type="text" class="form-control" placeholder="Full Name">
         </div>
 
         <div class="form-group">
             <label>Email</label>
-            <input name="email" type="email" class="form-control" placeholder="Email" required>
+            <input name="email" type="email" class="form-control" placeholder="Email">
         </div>
 
         <div class="form-group">
             <label>Position</label>
-            <input name="position" type="text" class="form-control" placeholder="Job Position" required>
+            <input name="position" type="text" class="form-control" placeholder="Job Position">
         </div>
 
         <div class="form-group">
             <label>Office</label>
-            <input name="office" type="text" class="form-control" placeholder="Office Location" required>
+            <input name="office" type="text" class="form-control" placeholder="Office Location">
         </div>
 
         <div class="form-group">
             <label>Age</label>
-            <input name="age" type="number" class="form-control" placeholder="Age" required>
+            <input name="age" type="number" class="form-control" placeholder="Age">
         </div>
 
         <div class="form-group">
             <label>Start Date</label>
-            <input name="start_date" type="date" class="form-control" required>
+            <input name="start_date" type="date" class="form-control">
         </div>
 
         <div class="form-group">
             <label>Salary</label>
-            <input name="salary" type="number" class="form-control" placeholder="Salary in USD" required>
+            <input name="salary" type="number" class="form-control" placeholder="Salary in USD">
         </div>
 
         <div class="form-group">
             <label>Password</label>
-            <input name="password" type="password" class="form-control" placeholder="Password" required>
+            <input name="password" type="password" class="form-control" placeholder="Password">
         </div>
 
 
