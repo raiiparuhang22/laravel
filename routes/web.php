@@ -1,19 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RoleController; // Add this line
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// New route to call RoleController method
-Route::get('/role', [RoleController::class, 'showHello']);
-
 use App\Http\Controllers\HomeController;
-
-Route::get('/', [HomeController::class, 'welcome']);
-
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 
-Route::get('/users', [UserController::class, 'index']);
+// Home route
+Route::get('/', [HomeController::class, 'welcome']);
+
+// Example RoleController route
+Route::get('/role', [RoleController::class, 'showHello']);
+
+// User Routes
+Route::get('/users', [UserController::class, 'index'])->name('users.index');        // List users
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create'); // Show form
+Route::post('/users', [UserController::class, 'store'])->name('users.store');       // Submit form
+
+Route::resource('users', App\Http\Controllers\UserController::class);

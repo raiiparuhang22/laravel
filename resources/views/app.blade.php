@@ -1,17 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>@yield('title', 'My Laravel App')</title>
-</head>
-<body>
-    @include('partials.navbar')
-
-    <div class="container">
-        @yield('content')
-    </div>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,12 +39,11 @@
         @include('layouts.header')
         <!-- End of Topbar -->
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    @yield("content")
 
-                </div>
+                
                 <!-- /.container-fluid -->
 
             </div>
