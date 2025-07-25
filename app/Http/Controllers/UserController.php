@@ -24,33 +24,33 @@ class UserController extends Controller
     // Store new user in database
    // Store new user in database
    public function store(Request $request)
-   {
-       // Validate input
-       $request->validate([
-           'name' => 'required|string|max:255',
-           'email' => 'required|email|unique:users,email',
-           'password' => 'required|string|min:6',
-           'position' => 'required|string|max:255',
-           'office' => 'required|string|max:255',
-           'age' => 'required|integer|min:1',
-           'start_date' => 'required|date',
-           'salary' => 'required|numeric|min:0',
-       ]);
-   
-       // Create new user with hashed password
-       User::create([
-           'name' => $request->name,
-           'email' => $request->email,
-           'password' => Hash::make($request->password),
-           'position' => $request->position,
-           'office' => $request->office,
-           'age' => $request->age,
-           'start_date' => $request->start_date,
-           'salary' => $request->salary,
-       ]);
-   
-       return redirect()->route('users.index')->with('success', 'User added successfully.');
-   }
+    {
+        $request->validate([
+            'name'       => 'required|string|max:255',
+            'email'      => 'required|email|unique:users,email',
+            'position'   => 'required|string|max:255',
+            'office'     => 'required|string|max:255',
+            'age'        => 'required|integer|min:1',
+            'start_date' => 'required|date',
+            'salary'     => 'required|numeric|min:0',
+            'password'   => 'required|string|min:6',
+        ]);
+
+        // Store the user with hashed password
+        User::create([
+            'name'       => $request->name,
+            'email'      => $request->email,
+            'position'   => $request->position,
+            'office'     => $request->office,
+            'age'        => $request->age,
+            'start_date' => $request->start_date,
+            'salary'     => $request->salary,
+            'password'   => bcrypt($request->password),
+        ]);
+
+        return redirect()->route('users.index')->with('success', 'User added successfully.');
+    }
+
    
 
 }
